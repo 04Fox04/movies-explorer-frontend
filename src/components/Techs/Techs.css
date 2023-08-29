@@ -19,6 +19,7 @@
     padding-bottom: 23px;
     color: black;
     border-bottom: 1px solid #000;
+    max-width: 1140px;
 }
 
 .techs__subtitle {
@@ -33,7 +34,8 @@
 
 .techs__technologies {
     padding-top: 26px;
-    margin: 0;
+    margin: 0 auto;
+    max-width: 460px;
     text-align: center;
     font-size: 14px;
     font-weight: 400;
@@ -132,6 +134,9 @@
     }
 
     .techs__title {
-        padding-top: 60px;
+        padding-top: 70px;
+        font-size: 18px;
+        letter-spacing: -0.72px;
+        padding-bottom: 28px;
     }
 }

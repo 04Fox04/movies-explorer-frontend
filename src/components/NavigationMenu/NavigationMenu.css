@@ -16,7 +16,6 @@
         display: flex;
         flex-direction: column;
         position: fixed;
-        padding-right: 30px;
         top: 0;
         right: 0;
         width: 520px;
@@ -34,9 +33,12 @@
     }
 
     .navigation__menu-image {
-        width: 22px;
-        height: 22px;
-        padding: 22.44px 0 0 466.44px;
+        width: 30px;
+        height: 30px;
+        padding: 24px 0 0 467px;
+    }
+    .navigation__menu-image:hover {
+        opacity: 0.8;
     }
 
     .navigation__link-container {
@@ -61,7 +63,7 @@
         color: #000;
         text-decoration: none;
         font-size: 18px;
-        font-weight: 400;
+        font-weight: 500;
         line-height: normal;
     }
 

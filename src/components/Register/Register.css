@@ -6,7 +6,7 @@
     height: 560px;
     max-width: 396px;
     margin: 0 auto;
-    padding-top: 70px;
+    padding: 70px 0;
 }
 
 .register__logo {
@@ -103,14 +103,25 @@
     padding: 6px 0 0 0;
     font-weight: 400;
     font-size: 10px;
+    color: #000;
+    padding-top: 25px;
+}
+.input__error::placeholder {
     color: #FF3055;
-    top: 17px;
+}
+.register__input-error_password {
+    margin: 0;
+    padding: 6px 0 0 0;
+    font-weight: 400;
+    font-size: 10px;
+    color: #FF3055;
+    padding-top: 5px;
 }
 
 @media screen and (max-width: 1023px) {
     .register__container {
         height: 560px;
-        padding-top: 232px;
+        padding: 232px 0;
     }
 
     .register__form {
@@ -125,7 +136,7 @@
 @media screen and (max-width: 767px) {
     .register__container {
         height: 694px;
-        padding-top: 56px;
+        padding: 56px 0 30px 0;
     }
 
     .register__logo {
@@ -140,7 +151,7 @@
     }
 
     .register__form {
-        padding-top: 80px;
+        padding-top: 82px;
         display: flex;
         flex-direction: column;
         max-width: 260px;
@@ -148,6 +159,7 @@
     }
 
     .register__button-signup {
+        font-size: 12px;
         margin-top: 222px;
         padding: 0;
     }

@@ -6,17 +6,19 @@ import Footer from "../Footer/Footer"
 
 function SavedMovies() {
     return (
-        <section className="saved__movies">
-            <SearchForm />
-            <div className="movies__cards-container">
-                <ul className="movies__cards-list">
-                    <MoviesCard />
-                    <MoviesCard />
-                    <MoviesCard />
-                </ul>
-            </div>
+        <>
+            <main>
+                <SearchForm />
+                <div className="movies__cards-container">
+                    <ul className="movies__cards-list">
+                        <MoviesCard />
+                        <MoviesCard />
+                        <MoviesCard />
+                    </ul>
+                </div>
+            </main>
             <Footer />
-        </section>
+        </>
     )
 }
 

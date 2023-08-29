@@ -9,12 +9,15 @@ function Movies() {
     const [movies, setMovies] = useState(false);
 
     return (
-        <section className="movies">
-            {movies && <Preloader />}
-            <SearchForm />
-            <MoviesCardList />
+        <>
+            <main>
+                {movies && <Preloader />}
+                <SearchForm />
+                <MoviesCardList />
+            </main>
             <Footer />
-        </section>
+        </>
+
     );
 }
 

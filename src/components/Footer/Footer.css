@@ -10,7 +10,7 @@
 }
 
 .footer__title {
-    padding-top: 204px;
+    padding-top: 79px;
     color: #A0A0A0;
     text-align: center;
     font-size: 13px;
@@ -55,20 +55,17 @@
 @media screen and (max-width: 1023px) {
     .footer__container {
         max-width: 708px;
-    }
-
-    .footer__title {
-        padding-top: 169px;
+        padding: 0 30px;
     }
 }
 
 @media screen and (max-width: 767px) {
     .footer__container {
         max-width: 300px;
+        padding: 0 10px;
     }
 
     .footer__title {
-        padding-top: 149px;
         font-size: 12px;
     }
 

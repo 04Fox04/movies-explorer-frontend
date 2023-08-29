@@ -140,8 +140,9 @@
     }
 
     .project__info-subtitle {
-        font-size: 12px;
+        font-size: 11px;
         line-height: 18px;
+        max-width: 284px;
     }
 
     .project__info-subtitle {
@@ -149,6 +150,7 @@
     }
 
     .project__week {
+        grid-template-columns: 100px 184px;
         gap: 10px 0;
     }
 

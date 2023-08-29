@@ -6,7 +6,7 @@ import Navigation from "../Navigation/Navigation"
 
 //в зависимости от состояния true/false меняется хедер
 function Header() {
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
 
   const header = isLogin ? (
     <Navigation />

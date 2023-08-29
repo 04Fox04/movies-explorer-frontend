@@ -62,13 +62,17 @@
 
 @media screen and (max-width: 767px) {
     .filter__container {
+        max-width: 148px;
         margin: 0 auto;
         padding: 41px 0 51px 0;
-        flex-direction: row;
+        flex-direction: row-reverse;
         justify-content: center;
     }
 
     .filter__checkbox-input {
-        margin: 0 13px 0 0;
+        margin: 0 0 0 13px;
+    }
+    .filter__checkbox-title {
+        font-size: 11px;
     }
 }

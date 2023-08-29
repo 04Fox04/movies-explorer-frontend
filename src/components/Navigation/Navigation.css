@@ -16,7 +16,7 @@
   width: 215px;
   display: flex;
   justify-content: space-between;
-  padding: 28px 0;
+  padding: 28px 0 0 64px;
 }
 
 .header__button-movies {
@@ -123,6 +123,7 @@
 
 @media screen and (max-width: 1023px) {
   .header__button-container_lite {
+    max-width: 738px; 
     padding: 0 30px;
   }
 
@@ -143,5 +144,19 @@
     margin-top: 15px;
     padding: 0;
     cursor: pointer;
+  }
+  .burger__menu-image:hover {
+    opacity: 0.8;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .header__button-container_lite {
+    padding: 0 14px;
+    max-width: 292px;
+  }
+  .header__button-menu{
+    width: 40px;
+    height: 43px;
   }
 }
