@@ -1,5 +1,5 @@
-// export const BASE_URL = 'https://api.kso.domainname.nomoreparties.co';
-export const BASE_URL = 'http://localhost:3000';
+export const BASE_URL = 'https://api.movies.domainname.nomoreparties.co';
+// export const BASE_URL = 'http://localhost:3000';
 
 function response(res) {
     if (res.ok) {
