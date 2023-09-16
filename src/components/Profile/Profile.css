@@ -77,6 +77,8 @@
     cursor: pointer;
     padding: 0;
     margin-bottom: 16px;
+    text-align: center;
+    text-decoration: none;
 }
 
 .profile__button-exit {
@@ -87,6 +89,8 @@
     padding: 0;
     text-decoration: none;
     margin: 0 auto;
+    border: none;
+    background-color: #fff;
 }
 
 .profile__input-error {
@@ -104,6 +108,32 @@
 .profile__button-exit:hover {
     opacity: 0.7;
 }
+.profile__button-submit {
+    width: 410px;
+    height: 45px;
+    background-color: #3456F3;
+    border-radius: 3px;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+.profile__button-submit:hover {
+    opacity: 0.8;
+}
+.profile__button-submit:disabled {
+    background-color: #F8F8F8;
+}
+.success__text {
+    text-align: center;
+    padding-bottom: 10px;
+    color: #23b632;
+}
+.success__text-err {
+    text-align: center;
+    padding-bottom: 10px;
+    color: #FF3055;
+}
+
 @media screen and (max-width: 1023px) {
     .profile__container {
         min-height: 445px;
