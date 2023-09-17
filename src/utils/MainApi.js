@@ -90,7 +90,8 @@ class MainApi {
 
 
 export const mainApi = new MainApi({
-  url: 'https://api.movies.domainname.nomoreparties.co',
+  url: "http://localhost:3000",
+  // url: 'https://api.movies.domainname.nomoreparties.co',
   headers: {
     authorization: `Bearer ${localStorage.getItem("userId")}`,
     "Content-Type": "application/json",

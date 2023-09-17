@@ -42,8 +42,8 @@ function HeaderLite() {
             <div className="header__button-container header__button-container_lite">
                 <Link className="header__logo" to="/"> <img src={Logo} alt="Лого" /></Link>
                 <div className="header__movies-container">
-                    <NavLink to="/movies" style={colorStyle} className={({ isActive }) => isActive ? "header__button-movies" : "header__button-movies_active"}>Фильмы</NavLink>
-                    <NavLink to="/saved-movies" style={colorStyle} className={({ isActive }) => isActive ? "header__button-saved header__button-saved_movies" : "header__button-saved_movies_active"}>Сохраненные фильмы</NavLink>
+                    <NavLink to="/movies" style={colorStyle} className={({ isActive }) => isActive ? "header__button-movies_active" : "header__button-movies"}>Фильмы</NavLink>
+                    <NavLink to="/saved-movies" style={colorStyle} className={({ isActive }) => isActive ? "header__button-saved_movies_active" : "header__button-saved header__button-saved_movies"}>Сохраненные фильмы</NavLink>
                 </div>
                 <Link to="/profile" className="header__profile-link">
                     <button style={buttonStyle} className="header__profile-button">

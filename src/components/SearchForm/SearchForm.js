@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./SearchForm.css";
 import FilterCheckbox from "../FilterCheckbox/FilterCheckbox";
 
-function SearchForm({ onSubmit, shortMovies, onChange }) {
+function SearchForm({ onSubmit, shortMovies, onChange, searchInput }) {
   const [data, setData] = useState({
     input: localStorage.getItem("searchInput") || "",
   });
