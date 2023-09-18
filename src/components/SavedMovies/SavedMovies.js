@@ -30,7 +30,6 @@ function SavedMovies({ loggedIn, searchMoviesByName, filterCheckboxMovies, saved
         if (savedMovies) {
             const moviesVisible = searchMoviesByName(savedMovies, text);
             if (moviesVisible.length === 0) {
-                setSearchText("Ничего не найдено.");
                 setIsPreloader(false);
             }
             setFilterMovies(

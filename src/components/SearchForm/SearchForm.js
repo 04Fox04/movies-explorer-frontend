@@ -1,15 +1,24 @@
 import React, { useState, useEffect } from "react";
 import "./SearchForm.css";
 import FilterCheckbox from "../FilterCheckbox/FilterCheckbox";
+import { useLocation } from "react-router-dom";
 
-function SearchForm({ onSubmit, shortMovies, onChange, searchInput }) {
+function SearchForm({ onSubmit, shortMovies, onChange }) {
+  const location = useLocation();
   const [data, setData] = useState({
-    input: localStorage.getItem("searchInput") || "",
+    input: localStorage.getItem("searchText") || "",
   });
 
   useEffect(() => {
-    localStorage.setItem("searchInput", data.input);
-  }, [data.input]);
+    if (location.pathname === '/saved-movies') {
+      setData('') 
+    } else {
+      const dataValueInput = localStorage.getItem("searchText", data.input);
+      if (dataValueInput) {
+        setData({input : dataValueInput}) 
+      }
+    }
+  }, [setData]);
 
   function handleChange(event) {
     const { target: { name, value } } = event;
@@ -17,6 +26,7 @@ function SearchForm({ onSubmit, shortMovies, onChange, searchInput }) {
   }
 
   function handleSubmit(event) {
+    // console.log(data.input)
     event.preventDefault();
     onSubmit(data.input, shortMovies);
   }
@@ -28,12 +38,11 @@ function SearchForm({ onSubmit, shortMovies, onChange, searchInput }) {
           <input
             className="search__input"
             onChange={handleChange}
-            value={data.input}
+            value={data.input ?? ""}
             name="input"
             id="search-input"
             type="text"
             placeholder="Фильм"
-            required
           />
           <button className="search__button" type="submit">Найти</button>
         </form>

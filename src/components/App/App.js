@@ -13,7 +13,7 @@ import Login from "../Login/Login"
 import NotFoundError from "../NotFoundError/NotFoundError"
 import "./App.css"
 import * as Auth from "../../utils/Auth"
-import {SHORT_FILM_DURATION} from "../../constants/ConstantsMovie"
+import { SHORT_FILM_DURATION } from "../../constants/ConstantsMovie"
 
 function App() {
     const [renderLoading, setRenderLoading] = useState(false);
@@ -96,7 +96,6 @@ function App() {
 
     const tokenCheck = () => {
         const token = localStorage.getItem("userId");
-        // console.log(token);
         if (token) {
             Auth
                 .tokenCheck(token)
@@ -113,8 +112,6 @@ function App() {
     }
 
     useEffect(() => {
-        tokenCheck();
-        
         if (loggedIn) {
             if (location.pathname === "/signin" || location.pathname === "/signup") {
                 navigate("/movies");
@@ -150,7 +147,6 @@ function App() {
     }
 
     function onSignOut() {
-        // setCurrentUser({});
         localStorage.clear();
         setLoggedIn(false);
         navigate('/');
@@ -205,10 +201,8 @@ function App() {
                         <Route path="/movies" element={<ProtectedRoute element={Movies} loggedIn={loggedIn} searchMoviesByName={searchMoviesByName} filterCheckboxMovies={filterCheckboxMovies} savedMovies={savedMovies} onSaveMovies={handleSaveMovie} onDeleteMovie={handleDeleteMovie} />} />
                         <Route path="/saved-movies" element={<ProtectedRoute element={SavedMovies} loggedIn={loggedIn} searchMoviesByName={searchMoviesByName} filterCheckboxMovies={filterCheckboxMovies} savedMovies={savedMovies} onDeleteMovie={handleDeleteMovie} />} />
                         <Route path="/profile" element={<ProtectedRoute element={Profile} loggedIn={loggedIn} userEmail={userEmail} success={success} successText={success ? "Профиль успешно обновлен!" : "При обновлении профиля произошла ошибка!"} onSignOut={onSignOut} getEditUser={handleUpdateUser} renderLoading={renderLoading ? "Сохранение..." : "Сохранить"} />} />
-                        {/* {!loggedIn ? (<> */}
-                            <Route path="/signup" element={<Register onRegister={handleRegister} submitStatus={submitStatus} renderLoading={renderLoading ? "Регистрация..." : "Зарегистрироваться"} />} />
-                            <Route path="/signin" element={<Login onLogin={handleLogin} submitStatus={submitStatus} renderLoading={renderLoading ? "Вход..." : "Войти"} />} />
-                        {/* </>) : null} */}
+                        <Route path="/signup" element={<Register onRegister={handleRegister} submitStatus={submitStatus} renderLoading={renderLoading ? "Регистрация..." : "Зарегистрироваться"} />} />
+                        <Route path="/signin" element={<Login onLogin={handleLogin} submitStatus={submitStatus} renderLoading={renderLoading ? "Вход..." : "Войти"} />} />
                         <Route path="/*" element={<NotFoundError />} />
                     </Routes>
                     {showFooter() && <Footer />}
