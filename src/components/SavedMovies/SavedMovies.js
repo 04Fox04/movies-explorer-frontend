@@ -10,35 +10,36 @@ function SavedMovies({ loggedIn, searchMoviesByName, filterCheckboxMovies, saved
     const [isPreloader, setIsPreloader] = useState(false);
     const [searchText, setSearchText] = useState("");
     const [filterMovies, setFilterMovies] = useState([]);
-    const [shortMovie, setShortMovie] = useState();
-    const [text, setText] = useState("");
-
+    const [shortMovie, setShortMovie] = useState(false);
     const handleCheckbox = () => {
         setShortMovie(!shortMovie);
     };
 
-    const handleSearchMovies = async (req) => {
-        if (savedMovies) {
-            setSearchText("");
-            setFilterMovies(searchMoviesByName(savedMovies, req));
-            setText(req);
+    const handleSearchMovies = (req) => {
+        if (req) {
+            if (savedMovies) {
+                setSearchText("")
+                const moviesVisible = searchMoviesByName(savedMovies, req);
+                setFilterMovies(
+                    shortMovie ? filterCheckboxMovies(moviesVisible) : moviesVisible
+                );
+                setSearchText(req)
+            }
+        } else {
+            setFilterMovies([])
+            setSearchText("")
         }
+        setIsPreloader(false);
     };
 
     useEffect(() => {
-        setIsPreloader(true);
         if (savedMovies) {
-            const moviesVisible = searchMoviesByName(savedMovies, text);
-            if (moviesVisible.length === 0) {
-                setIsPreloader(false);
-            }
+            const moviesVisible = searchMoviesByName(savedMovies, searchText);
             setFilterMovies(
                 shortMovie ? filterCheckboxMovies(moviesVisible) : moviesVisible
             );
-            setIsPreloader(false);
-            return;
         }
-    }, [searchMoviesByName, savedMovies, filterCheckboxMovies, shortMovie, text]);
+    }, [ savedMovies, shortMovie ]);
 
     const handleDelete = ({ _id: id }) => {
         onDeleteMovie(id);
@@ -52,18 +53,18 @@ function SavedMovies({ loggedIn, searchMoviesByName, filterCheckboxMovies, saved
                 {isPreloader ? (
                     <Preloader />
                 ) : (
-                    <>
-                        <MoviesCardList
-                            onClick={handleDelete}
-                            movies={filterMovies}
-                            searchText={searchText}
-                        />
-                    </>
-                )}
+                    <MoviesCardList
+                        onClick={handleDelete}
+                        movies={filterMovies}
+                        searchText={searchText}
+                        savedMovies={savedMovies}
+                    />
+                )
+                }
             </main>
             <Footer />
         </>
     )
 }
 
-export default SavedMovies
+export default SavedMovies;

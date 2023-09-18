@@ -6,19 +6,20 @@ import { useLocation } from "react-router-dom";
 function SearchForm({ onSubmit, shortMovies, onChange }) {
   const location = useLocation();
   const [data, setData] = useState({
-    input: localStorage.getItem("searchText") || "",
+    input: "",
   });
 
+  const isPageSavedMovies = location.pathname === '/saved-movies'
   useEffect(() => {
-    if (location.pathname === '/saved-movies') {
+    if (isPageSavedMovies) {
       setData('') 
     } else {
-      const dataValueInput = localStorage.getItem("searchText", data.input);
+      const dataValueInput = localStorage.getItem("searchText");
       if (dataValueInput) {
         setData({input : dataValueInput}) 
       }
     }
-  }, [setData]);
+  }, [setData, isPageSavedMovies]);
 
   function handleChange(event) {
     const { target: { name, value } } = event;
@@ -28,7 +29,7 @@ function SearchForm({ onSubmit, shortMovies, onChange }) {
   function handleSubmit(event) {
     // console.log(data.input)
     event.preventDefault();
-    onSubmit(data.input, shortMovies);
+    onSubmit(data.input ?? "" , shortMovies);
   }
 
   return (

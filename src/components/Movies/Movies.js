@@ -87,6 +87,7 @@ function Movies({ loggedIn, searchMoviesByName, filterCheckboxMovies, savedMovie
         );
         movieDelete ? onDeleteMovie(movieDelete._id) : onSaveMovies(movie);
     };
+    
 
     return (
         <>
