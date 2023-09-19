@@ -1,29 +1,42 @@
 import React from "react";
 import "./MoviesCard.css";
-import moviesCardImage from "../../images/moviesCardImage.jpg";
 import { useLocation } from "react-router-dom";
 
-
-function MoviesCard() {
+function MoviesCard({ movie, isLike, onClick }) {
     const location = useLocation();
 
-    const button = () => {
-        if (location.pathname === "/saved-movies") {
+    const handleClickMovie = () => {
+        onClick(movie);
+    };
+
+    const savedMoviesPage = location.pathname === "/saved-movies";
+
+    const movieImage = savedMoviesPage ? movie.image : `https://api.nomoreparties.co/${movie.image.url}`;
+
+    const buttonImages = () => {
+        if (location.pathname === "/movies")
+            return isLike ? "card__like-active" : "card__like";
+        if (location.pathname === "/saved-movies")
             return "card__delete-button";
-        } else {
-            return "card__like";
-        }
+    };
+
+    function duration(numb) {
+        const hours = Math.floor(numb / 60);
+        const minutes = numb % 60;
+        return `${hours}ч ${minutes}м`;
     }
 
     return (
         <li className="card">
-            <img className="card__image" src={moviesCardImage} alt="Превью фильма" />
+            <a href={movie.trailerLink} target="_blank" rel="noreferrer">
+                <img className="card__image" src={movieImage} alt={movie.nameRU} />
+            </a>
             <div className="card__container">
                 <div className="card__name-container">
-                    <h3 className="card__name">Скейт — кухня</h3>
-                    <button className={button()} type="button"></button>
+                    <h3 className="card__name">{movie.nameRU}</h3>
+                    <button className={buttonImages()} onClick={handleClickMovie} type="button"></button>
                 </div>
-                <p className="card__duration">1ч 42м</p>
+                <p className="card__duration">{duration(movie.duration)}</p>
             </div>
         </li>
     );

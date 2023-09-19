@@ -6,7 +6,7 @@ function NavTab() {
   return (
     <nav className="nav-tab">
       <div className="nav-tab__container">
-        <Link to="about" className="nav-tab__link">Узнать больше</Link>
+        <Link to="project" className="nav-tab__link">Узнать больше</Link>
       </div>
     </nav>
   );

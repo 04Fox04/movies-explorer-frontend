@@ -26,6 +26,7 @@
     background-image: url("../../images/checkbox.svg");
     cursor: pointer;
     appearance: none;
+    transition: all .3s;
 }
 
 .filter__checkbox-input::after {
@@ -36,6 +37,10 @@
 
 .filter__checkbox-input:checked {
     background-image: url("../../images/checkbox-active.svg");
+}
+.button__checkbox {
+    background-color: #fff;
+    border: none;
 }
 
 @media screen and (max-width: 1023px) {

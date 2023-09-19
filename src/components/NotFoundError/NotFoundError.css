@@ -36,6 +36,9 @@
     font-weight: 400;
     line-height: normal;
     margin-top: 184px;
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
 }
 
 .error__button:hover {
